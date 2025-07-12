@@ -6,6 +6,24 @@
     <title>PutkiMar-Counter</title>
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
+
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC8x0ic7ieQSKlD2hKyUqylKSxhTOBhZyM",
+            authDomain: "putkimar-counter.firebaseapp.com",
+            databaseURL: "https://putkimar-counter-default-rtdb.firebaseio.com",
+            projectId: "putkimar-counter",
+            storageBucket: "putkimar-counter.firebasestorage.app",
+            messagingSenderId: "189136674545",
+            appId: "1:189136674545:web:17b1eb9a58e981a0635350",
+            measurementId: "G-LHS6NZ5NLF"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+    </script>
 </head>
 <body>
     <div class="container">
@@ -29,7 +47,6 @@
             <div class="stat-item">
                 <div class="stat-content">
                     <div class="stat-rhyme">টিনের চালে কাউয়া, তারেক জিয়া শাউয়া</div>
-
                     <div class="stat-rhyme">টিনের চালে কাউয়া, বিএনপি শাউয়া</div>
                 </div>
             </div>
@@ -38,9 +55,7 @@
             © PoinDexter 2025
         </footer>
     </div>
-    
+
     <script src="main.js"></script>
 </body>
-
-
 </html>

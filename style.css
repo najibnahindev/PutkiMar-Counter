@@ -13,7 +13,11 @@
     --highlight-border: #6366f1;
     --count-red: #e11d48;
 }
-* { margin: 0; padding: 0; box-sizing: border-box; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 body {
     font-family: 'Hind Siliguri', sans-serif;
     background: var(--background);
@@ -77,9 +81,18 @@ body {
     animation: shoePop 0.55s cubic-bezier(.4,2,.4,1) forwards;
 }
 @keyframes shoePop {
-    0% { opacity: 0; transform: translate(-50%, -50%) scale(0.5) rotate(-30deg);}
-    60% { opacity: 1; transform: translate(-50%, -50%) scale(1.08) rotate(-8deg);}
-    100% { opacity: 0; transform: translate(-50%, -50%) scale(1.2) rotate(0deg);}
+    0% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(0.5) rotate(-30deg);
+    }
+    60% {
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.08) rotate(-8deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(1.2) rotate(0deg);
+    }
 }
 .main-text {
     font-size: 1.3rem;
@@ -120,7 +133,8 @@ body {
     overflow: hidden;
     min-width: 60px;
 }
-.count-button:hover, .count-button:active {
+.count-button:hover,
+.count-button:active {
     background: var(--button-hover);
 }
 .highlight-result {
@@ -153,14 +167,29 @@ body {
     transition: color 0.18s;
 }
 @keyframes highlightPop {
-    0% { box-shadow: 0 0 0 #fff0; transform: scale(0.95);}
-    80% { box-shadow: 0 4px 16px #6366f122; transform: scale(1.04);}
-    100% { box-shadow: 0 2px 8px #1c1e8e0d; transform: scale(1);}
+    0% {
+        box-shadow: 0 0 0 #fff0;
+        transform: scale(0.95);
+    }
+    80% {
+        box-shadow: 0 4px 16px #6366f122;
+        transform: scale(1.04);
+    }
+    100% {
+        box-shadow: 0 2px 8px #1c1e8e0d;
+        transform: scale(1);
+    }
 }
 @keyframes pulseBox {
-    0% { box-shadow: 0 0 0 #fff0; }
-    50% { box-shadow: 0 4px 16px #6366f133; }
-    100% { box-shadow: 0 2px 8px #6366f10d; }
+    0% {
+        box-shadow: 0 0 0 #fff0;
+    }
+    50% {
+        box-shadow: 0 4px 16px #6366f133;
+    }
+    100% {
+        box-shadow: 0 2px 8px #6366f10d;
+    }
 }
 .fun-message {
     position: absolute;
@@ -175,19 +204,33 @@ body {
     border-radius: 8px;
     padding: 0;
     box-shadow: none;
-    animation: watermarkFloat 1.6s cubic-bezier(.77,0,.18,1) forwards;
+    animation: watermarkFloat 1.6s cubic-bezier(.77, 0, .18, 1) forwards;
     pointer-events: none;
     min-width: 70px;
     z-index: 10;
     user-select: none;
 }
 @keyframes watermarkFloat {
-    0% { opacity: 0.18; transform: translateX(-50%) translateY(0) scale(1);}
-    20% { opacity: 0.33; }
-    40% { opacity: 0.45; }
-    60% { opacity: 0.33; }
-    80% { opacity: 0.15;}
-    100% { opacity: 0; transform: translateX(-50%) translateY(-54px) scale(1.4);}
+    0% {
+        opacity: 0.18;
+        transform: translateX(-50%) translateY(0) scale(1);
+    }
+    20% {
+        opacity: 0.33;
+    }
+    40% {
+        opacity: 0.45;
+    }
+    60% {
+        opacity: 0.33;
+    }
+    80% {
+        opacity: 0.15;
+    }
+    100% {
+        opacity: 0;
+        transform: translateX(-50%) translateY(-54px) scale(1.4);
+    }
 }
 .stats {
     display: flex;
@@ -217,22 +260,52 @@ body {
     margin-bottom: 2px;
     letter-spacing: 0.01em;
 }
-.celebration, .confetti {
+.celebration,
+.confetti {
     display: none;
 }
 @media (max-width: 600px) {
-    .container { padding: 16px 2px;}
-    .profile-holder, .main-image { width: 70px; height: 70px;}
-    .main-text { font-size: 1rem;}
-    .counter-display { font-size: 1.2rem;}
-    .count-button { padding: 6px 10px; font-size: 0.92rem;}
-    .highlight-result { font-size: 1.07rem; padding: 7px 3px;}
-    .result-number { font-size: 1.3rem;}
-    .fun-message { font-size: 0.9rem; min-width: 50px;}
+    .container {
+        padding: 16px 2px;
+    }
+    .profile-holder,
+    .main-image {
+        width: 70px;
+        height: 70px;
+    }
+    .main-text {
+        font-size: 1rem;
+    }
+    .counter-display {
+        font-size: 1.2rem;
+    }
+    .count-button {
+        padding: 6px 10px;
+        font-size: 0.92rem;
+    }
+    .highlight-result {
+        font-size: 1.07rem;
+        padding: 7px 3px;
+    }
+    .result-number {
+        font-size: 1.3rem;
+    }
+    .fun-message {
+        font-size: 0.9rem;
+        min-width: 50px;
+    }
 }
 @keyframes ripple {
-    0% { width: 0; height: 0; opacity: 1;}
-    100% { width: 60px; height: 60px; opacity: 0;}
+    0% {
+        width: 0;
+        height: 0;
+        opacity: 1;
+    }
+    100% {
+        width: 60px;
+        height: 60px;
+        opacity: 0;
+    }
 }
 .site-footer {
     margin-top: 40px;
