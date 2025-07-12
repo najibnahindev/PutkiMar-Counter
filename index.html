@@ -3,10 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PutkiMar Counter</title>
+    <title>PutkiMar-Counter</title>
     <link href="https://fonts.maateen.me/kalpurush/font.css" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.42.5/dist/umd/supabase.min.js"></script>
+
+
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-database-compat.js"></script>
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyC8x0ic7ieQSKlD2hKyUqylKSxhTOBhZyM",
+            authDomain: "putkimar-counter.firebaseapp.com",
+            databaseURL: "https://putkimar-counter-default-rtdb.firebaseio.com",
+            projectId: "putkimar-counter",
+            storageBucket: "putkimar-counter.firebasestorage.app",
+            messagingSenderId: "189136674545",
+            appId: "1:189136674545:web:17b1eb9a58e981a0635350",
+            measurementId: "G-LHS6NZ5NLF"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const database = firebase.database();
+    </script>
 </head>
 <body>
     <div class="container">
@@ -19,7 +36,9 @@
         <div class="main-text">এক দুই তিন চার,<br>জারেক টিয়ার পুট*কি মার</div>
         <div class="counter-section">
             <div class="counter-display" id="counterDisplay">০</div>
-            <button class="count-button" id="countButton">পুট*কি মার 🚨</button>
+            <button class="count-button" id="countButton" onclick="incrementCounter()">
+                পুট*কি মার 🚨
+            </button>
         </div>
         <div class="highlight-result" id="highlightResult">
             জারেক টিয়া কে <span class="result-number" id="countSpan">০</span> বার পুট*কি মারা হয়েছে
@@ -32,7 +51,9 @@
                 </div>
             </div>
         </div>
-        <footer class="site-footer">© PoinDexter 2025</footer>
+        <footer class="site-footer">
+            © PoinDexter 2025
+        </footer>
     </div>
 
     <script src="main.js"></script>
