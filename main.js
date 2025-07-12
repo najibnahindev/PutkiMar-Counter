@@ -74,26 +74,45 @@ function incrementCounter() {
     }
 }
 
-document.getElementById('countButton').addEventListener('click', function (e) {
-    const rect = this.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
-    const ripple = document.createElement('div');
-    ripple.style.cssText = `
-        position: absolute;
-        border-radius: 50%;
-        background: rgba(255, 255, 255, 0.6);
-        transform: translate(-50%, -50%);
-        pointer-events: none;
-        left: ${x}px;
-        top: ${y}px;
-        width: 0;
-        height: 0;
-        animation: ripple 0.4s ease-out;
-        z-index:1;
-    `;
-    this.appendChild(ripple);
-    setTimeout(() => ripple.remove(), 400);
-});
+window.onload = function () {
+    // Firebase config inside window.onload to ensure scripts are loaded
+    const firebaseConfig = {
+        apiKey: "AIzaSyC8x0ic7ieQSKlD2hKyUqylKSxhTOBhZyM",
+        authDomain: "putkimar-counter.firebaseapp.com",
+        databaseURL: "https://putkimar-counter-default-rtdb.firebaseio.com",
+        projectId: "putkimar-counter",
+        storageBucket: "putkimar-counter.appspot.com",
+        messagingSenderId: "189136674545",
+        appId: "1:189136674545:web:17b1eb9a58e981a0635350",
+        measurementId: "G-LHS6NZ5NLF"
+    };
+    firebase.initializeApp(firebaseConfig);
 
-loadData();
+    loadData();
+
+    const countButton = document.getElementById('countButton');
+    countButton.addEventListener('click', function (e) {
+        incrementCounter();
+
+        // Ripple effect
+        const rect = this.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        const ripple = document.createElement('div');
+        ripple.style.cssText = `
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.6);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            left: ${x}px;
+            top: ${y}px;
+            width: 0;
+            height: 0;
+            animation: ripple 0.4s ease-out;
+            z-index:1;
+        `;
+        this.appendChild(ripple);
+        setTimeout(() => ripple.remove(), 400);
+    });
+};
